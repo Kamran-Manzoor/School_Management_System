@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         initFragment();
     }
     private void initFragment(){
-        Fragment fragment = new Fragment_QuickProfile();
+        Fragment fragment = new LoginFragment();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_frame,fragment);
         ft.commit();
