@@ -11,12 +11,12 @@ import android.view.ViewGroup;
  * Created by kami on 21/03/2018.
  */
 
-public class Fragment_Parent extends Fragment {
+public class Fragment_QuickProfile extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_parent, container, false);
+        View view = inflater.inflate(R.layout.fragment_quickprofile, container, false);
         return view;
 
     }
