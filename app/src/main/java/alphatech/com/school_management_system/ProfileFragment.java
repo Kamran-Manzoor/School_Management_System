@@ -151,9 +151,9 @@ public class ProfileFragment extends Fragment  implements View.OnClickListener {
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
 
         Phone phone = new Phone();
-        phone.setNum(num);
-        phone.setOld_password(old_password);
-        phone.setNew_password(new_password);
+//        phone.setNum(num);
+//        phone.setOld_password(old_password);
+//        phone.setNew_password(new_password);
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.CHANGE_PASSWORD_OPERATION);
         request.setPhone(phone);

@@ -12,7 +12,7 @@ public class ServerRequest {
         this.operation = operation;
     }
 
-    public void setPhone(Phone user) {
+    public void setPhone(Phone phone) {
         this.phone = phone;
     }
 }

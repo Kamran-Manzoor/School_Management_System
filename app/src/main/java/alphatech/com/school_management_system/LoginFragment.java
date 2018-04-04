@@ -2,6 +2,7 @@ package alphatech.com.school_management_system;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -95,8 +96,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
 
         Phone phone = new Phone();
-        phone.setNum(num);
-        phone.setPassword(password);
+        phone.setPh_no(num);
+        phone.setPass(password);
+        phone.setType("Anyone");
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.LOGIN_OPERATION);
         request.setPhone(phone);
@@ -107,15 +109,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
             public void onResponse(Call<ServerResponse> call, retrofit2.Response<ServerResponse> response) {
 
                 ServerResponse resp = response.body();
-                Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
+//                Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
 
                 if(resp.getResult().equals(Constants.SUCCESS)){
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.putBoolean(Constants.IS_User_LOGGED_IN,true);
-                    editor.putString(Constants.EMAIL,resp.getUser().getNum());
-                    editor.putString(Constants.NAME,resp.getUser().getType());
-                   // editor.putString(Constants.UNIQUE_ID,resp.getUser().getUnique_id());
-                    editor.apply();
+//                    SharedPreferences.Editor editor = pref.edit();
+//                    editor.putBoolean(Constants.IS_User_LOGGED_IN,true);
+//                    editor.putString(Constants.EMAIL,resp.getUser().getPh_no());
+//                    editor.putString(Constants.NAME,resp.getUser().getType());
+//                   // editor.putString(Constants.UNIQUE_ID,resp.getUser().getUnique_id());
+//                    editor.apply();
                     goToProfile();
 
                 }
@@ -143,9 +145,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private void goToProfile(){
 
-        Fragment profile = new ProfileFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame,profile);
-        ft.commit();
+        Intent intent = new Intent(getActivity(), DashBoardActivity.class);
+        startActivity(intent);
+
+//        Fragment profile = new ProfileFragment();
+//        FragmentTransaction ft = getFragmentManager().beginTransaction();
+//        ft.replace(R.id.fragment_frame,profile);
+//        ft.commit();
     }
 }

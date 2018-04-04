@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="alphatech.com.school_management_system.Splash"
+    >
 
+    <TextView
+        android:id="@+id/tv_splash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:textSize="36dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
 
 </LinearLayout>

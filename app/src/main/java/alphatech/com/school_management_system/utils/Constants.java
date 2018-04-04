@@ -7,7 +7,7 @@ package alphatech.com.school_management_system.utils;
 
 public class Constants {
 
-    public static final String BASE_URL = "http://192.168.10.7/";
+    public static final String BASE_URL = "http://192.168.10.9:8888/";
     public static final String TAG_USERS = "USERS";
 
 

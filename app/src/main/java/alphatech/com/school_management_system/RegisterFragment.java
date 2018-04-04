@@ -2,6 +2,7 @@ package alphatech.com.school_management_system;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
@@ -63,14 +64,14 @@ public class RegisterFragment  extends Fragment implements View.OnClickListener{
 
             case R.id.btn_register:
 
-                String name = et_name.getText().toString();
-                String email = et_email.getText().toString();
-                String password = et_password.getText().toString();
+                String num = et_name.getText().toString();
+                String type = et_email.getText().toString();
+                String pass = et_password.getText().toString();
 
-                if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+                if(!num.isEmpty() && !pass.isEmpty() && !type.isEmpty()) {
 
                     progress.setVisibility(View.VISIBLE);
-                    registerProcess(name,email,password);
+                    registerProcess(num,pass,type);
 
                 } else {
 
@@ -81,7 +82,7 @@ public class RegisterFragment  extends Fragment implements View.OnClickListener{
         }
 
     }
-    private void registerProcess(String num, String type,String password){
+    private void registerProcess(final String num, String pass, String type){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -91,9 +92,9 @@ public class RegisterFragment  extends Fragment implements View.OnClickListener{
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
 
         Phone phone = new Phone();
-        phone.setNum(num);
+        phone.setPh_no(num);
+        phone.setPass(pass);
         phone.setType(type);
-        phone.setPassword(password);
         ServerRequest request = new ServerRequest();
         request.setOperation(Constants.REGISTER_OPERATION);
         request.setPhone(phone);
@@ -104,8 +105,14 @@ public class RegisterFragment  extends Fragment implements View.OnClickListener{
             public void onResponse(Call<ServerResponse> call, retrofit2.Response<ServerResponse> response) {
 
                 ServerResponse resp = response.body();
-                Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
                 progress.setVisibility(View.INVISIBLE);
+                if (resp.getResult().equals(Constants.SUCCESS)) {
+                    Intent intent = new Intent(getActivity(), DashBoardActivity.class);
+                    startActivity(intent);
+                }else {
+                    Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
+
+                }
             }
 
             @Override
