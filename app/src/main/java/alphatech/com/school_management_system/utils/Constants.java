@@ -7,7 +7,7 @@ package alphatech.com.school_management_system.utils;
 
 public class Constants {
 
-    public static final String BASE_URL = "http://192.168.10.9:8888/";
+    public static final String BASE_URL = "http://192.168.10.15/";
     public static final String TAG_USERS = "USERS";
 
 
@@ -35,5 +35,11 @@ public class Constants {
     public static final String UNIQUE_ID = "unique_id";
 
     public static final String TAG = "Waiter's App";
+
+    public static final String ADMIN = "admin";
+    public static final String STUDENT = "student";
+    public static final String PARENT = "parent";
+    public static final String TEACHER = "teacher";
+
 
 }

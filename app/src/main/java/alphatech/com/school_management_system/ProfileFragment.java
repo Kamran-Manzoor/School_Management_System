@@ -1,11 +1,11 @@
 package alphatech.com.school_management_system;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Tahir Raza on 22/03/2018.
  */
 
-public class ProfileFragment extends Fragment  implements View.OnClickListener {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private TextView tv_num,tv_type,tv_message;
   //  private SharedPreferences pref;
@@ -136,7 +136,8 @@ public class ProfileFragment extends Fragment  implements View.OnClickListener {
     private void goToLogin(){
 
         Fragment login = new LoginFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        android.support.v4.app.FragmentTransaction
+         ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_frame,login);
         ft.commit();
     }

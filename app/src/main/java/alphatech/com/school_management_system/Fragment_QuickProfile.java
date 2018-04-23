@@ -1,8 +1,8 @@
 package alphatech.com.school_management_system;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 /**
  * Created by kami on 21/03/2018.
  */
+
 
 public class Fragment_QuickProfile extends Fragment {
 

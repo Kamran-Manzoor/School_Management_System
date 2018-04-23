@@ -1,11 +1,11 @@
 package alphatech.com.school_management_system;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +19,7 @@ import alphatech.com.school_management_system.models.Phone;
 import alphatech.com.school_management_system.models.ServerRequest;
 import alphatech.com.school_management_system.models.ServerResponse;
 import alphatech.com.school_management_system.utils.Constants;
+import alphatech.com.school_management_system.utils.Sessions;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -43,6 +44,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_login,container,false);
         initViews(view);
         return view;
+
     }
 
     private void initViews(View view){
@@ -72,6 +74,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
             case R.id.btn_login:
                 String num = et_number.getText().toString();
                 String password = et_password.getText().toString();
+
 
                 if(!num.isEmpty() && !password.isEmpty()) {
 
@@ -142,7 +145,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         ft.replace(R.id.fragment_frame,register);
         ft.commit();
     }
-
     private void goToProfile(){
 
         Intent intent = new Intent(getActivity(), DashBoardActivity.class);
