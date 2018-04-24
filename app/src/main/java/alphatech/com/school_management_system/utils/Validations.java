@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.widget.EditText;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +19,7 @@ public class Validations {
     private static final int name_max_length = 20;
 
 
-    Context context;
+    private Context context;
 
 
 
@@ -30,18 +29,18 @@ public class Validations {
 
 
 
-//    public boolean loginValidation(EditText editText , EditText editText1, String email, String password){
+//  public boolean loginValidation(EditText editText , EditText editText1, String email, String password){
 //
-//        boolean isEmailEntered = !TextUtils.isEmpty(email.trim());
+//       boolean isEmailEntered = !TextUtils.isEmpty(email.trim());
 //        boolean isPasswordEntered = !TextUtils.isEmpty(password.trim());
 //
-//        if (isEmailEntered && isPasswordEntered){
-//            boolean valid = true;
+//       if (isEmailEntered && isPasswordEntered){
+//           boolean valid = true;
 //            if(!isEmailValid(email)){
 //                valid = false;
 //                editText.setError(context.getString(R.string.email_error));
 //            }
-//            if(password.length() < pass_min_length){
+//           if(password.length() < pass_min_length){
 //                valid = false;
 //                editText1.setError(context.getString(R.string.pass_min_error));
 //            }
@@ -113,11 +112,71 @@ public class Validations {
 //
 //        return false;
 //    }
+//
+//
 
-//    public boolean isEmailValid(String email){
-//        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-//        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-//        Matcher matcher = pattern.matcher(email);
-//        return matcher.matches();
-//    }
+            public boolean quickProfilevalidation(EditText etfullname, EditText etothernumber, EditText etemail,
+                                                  String fullname, Number othernumber, String email )
+            {
+                boolean isNameEntered = !TextUtils.isEmpty(fullname.trim());
+                boolean isNumberEntered = !TextUtils.isEmpty(othernumber.toString().trim());
+                boolean isEmailEntered = !TextUtils.isEmpty(email.trim());
+
+                if (isNameEntered && isNumberEntered && isEmailEntered){
+                              boolean validy = true;
+                    if (fullname.length()< name_min_length || fullname.length() > name_max_length){
+                        validy = false;
+                etfullname.setError(context.getString(R.string.name_length_error));
+                    }
+
+                    if (!isValidPhoneNumber(othernumber)){
+                        validy = false;
+
+                        etothernumber.setText(context.getString(R.string.number_error));
+                    }
+
+                    if (!isEmailValid(email)) {
+                        validy = false;
+                etemail.setError(context.getString(R.string.email_error));
+                     }
+                                return validy;
+                }  else if (!isNameEntered && !isNumberEntered && !isEmailEntered ) {
+            etfullname.setError(context.getString(R.string.feilds_empty));
+            etothernumber.setError(context.getString(R.string.feilds_empty));
+            etemail.setError(context.getString(R.string.feilds_empty));
+
+        } else {
+            if (!isNameEntered) {
+                etfullname.setError(context.getString(R.string.name_empty));
+            }
+            if (!isNameEntered) {
+                etemail.setError(context.getString(R.string.number_empty));
+            }
+            if (!isEmailEntered) {
+                etemail.setError(context.getString(R.string.email_empty));
+                    }
+
+        }
+        return false;
+            }
+
+
+
+     private boolean isValidPhoneNumber(Number phoneNumber) {
+                String regexStr = "^[0-9]$";
+         String number = phoneNumber.toString();
+         if (number.length()<10 && number.length()>11 && number.matches(regexStr)==true ){
+         }
+         return true;
+
+    }
+
+    public boolean isEmailValid(String email){
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
 }
+

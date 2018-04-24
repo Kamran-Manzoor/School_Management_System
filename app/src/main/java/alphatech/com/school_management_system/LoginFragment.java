@@ -51,12 +51,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         pref = getActivity().getPreferences(0);
 
-        btn_login = (AppCompatButton)view.findViewById(R.id.btn_login);
-        tv_register = (TextView)view.findViewById(R.id.tv_register);
-        et_number = (EditText)view.findViewById(R.id.et_num_login);
-        et_password = (EditText)view.findViewById(R.id.et_password);
+        btn_login = view.findViewById(R.id.btn_login);
+        tv_register = view.findViewById(R.id.tv_register);
+        et_number = view.findViewById(R.id.et_num_login);
+        et_password = view.findViewById(R.id.et_password);
 
-        progress = (ProgressBar)view.findViewById(R.id.progress);
+        progress = view.findViewById(R.id.progress);
 
         btn_login.setOnClickListener(this);
         tv_register.setOnClickListener(this);

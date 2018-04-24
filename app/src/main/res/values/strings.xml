@@ -4,4 +4,12 @@
     <string name="student_panel">Student Dashboard</string>
 
 
+    <string name="name_length_error">Name within 20 charachters</string>
+    <string name="email_error">Enter correct email </string>
+    <string name="number_error">Enter correct number</string>
+    <string name="feilds_empty">Fields are empty</string>
+    <string name="name_empty">Enter your name</string>
+    <string name="number_empty">Enter your number</string>
+    <string name="email_empty">Enter email </string>
+
 </resources>

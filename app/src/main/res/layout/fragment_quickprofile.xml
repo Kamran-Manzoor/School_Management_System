@@ -1,10 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:text="Profile"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circuler_profile"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:civ_border_width="2dp"
+        android:src="@drawable/staff"
+        android:clickable="true"
+        />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="45dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:hint="Full Name"
+                android:id="@+id/et_p_fullname"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    >
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <EditText
+            android:hint="Other Contact No#"
+            android:id="@+id/et_p_othernumber"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_marginTop="8dp"
@@ -13,11 +80,31 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="Name"
-            android:id="@+id/et_name"
-            android:inputType="textPersonName"
+            android:hint="Email"
+            android:id="@+id/et_p_email"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_createprofile"
+        android:text="Create"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+    <ProgressBar
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:id="@+id/progress"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
+</LinearLayout>
 </LinearLayout>
